@@ -1,54 +1,52 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng ký - FashionStore</title>
+    <title>Đăng nhập - FashionStore</title>
     <link rel="stylesheet" href="assets/css/base/reset.css">
     <link rel="stylesheet" href="assets/css/base/typography.css">
 
     <link rel="stylesheet" href="assets/css/layouts/auth-layout.css">
     <link rel="stylesheet" href="assets/css/pages/login.css">
-
 </head>
 <body>
     <div class="login-container">
-            <div class="login-image register-design"> </div>
-            <div class="login-form-section">
-                <form class="login-form">
-                    <h2>Tạo tài khoản</h2>
-                    <p>Vui lòng điền thông tin bên dưới</p>
-
-                    <div class="input-group">
-                        <label>Họ và Tên</label>
-                        <input type="text" placeholder="Nhập họ tên" required>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Email</label>
-                        <input type="email" placeholder="abc@gmail.com" required>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Số điện thoại</label>
-                        <input type="tel" placeholder="Nhập số điện thoại của bạn" required>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Mật khẩu</label>
-                        <input type="password" placeholder="Tối thiểu 6 ký tự" required>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Xác nhận mật khẩu</label>
-                        <input type="password" placeholder="Nhập lại mật khẩu" required>
-                    </div>
-
-                    <button type="submit" class="btn-login">Đăng ký ngay</button>
-
-                    <p class="register-link">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
-                </form>
+        <div class="login-image">
+            <div class="brand-overlay">
+                <h1>FashionStore</h1>
+                <p>Khám phá bộ sưu tập thời trang mới nhất với phong cách hiện đại và thanh lịch.</p>
             </div>
+        </div>
+
+        <div class="login-form-section">
+            <a href="index.html" class="back-home">← Quay lại trang chủ</a>
+
+            <form id="loginForm" class="login-form">
+                <h2>Chào mừng trở lại</h2>
+                <p>Vui lòng nhập thông tin đăng nhập</p>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id = "password" name = "password" placeholder="Mật khẩu" required>
+                        <span class="toggle-password"></span>
+                    </div>
+                </div>
+
+                <div class="form-option">
+                    <a href="#" class="forgot-password">Quên mật khẩu?</a>
+                </div>
+
+                <button type="submit" class="btn-login">Đăng nhập</button>
+
+                <p class="register-link">Chưa có tài khoản? <a href="register.html">Đăng kí ngay</a></p>
+            </form>
         </div>
     </div>
 </body>
