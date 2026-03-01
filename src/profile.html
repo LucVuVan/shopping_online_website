@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ - FashionStore</title>
+
+    <!-- Base -->
+    <link rel="stylesheet" href="assets/css/base/variables.css">
+    <link rel="stylesheet" href="assets/css/base/reset.css">
+    <link rel="stylesheet" href="assets/css/base/typography.css">
+
+    <!-- Components -->
+    <link rel="stylesheet" href="assets/css/components/navbar.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+
+    <!-- Page -->
+    <link rel="stylesheet" href="assets/css/pages/order-history.css">
+    <link rel="stylesheet" href="assets/css/pages/profile.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="navbar-inner">
+        <a href="index.html" class="logo">FashionStore</a>
+        <ul class="nav-links">
+            <li><a href="#">Nam</a></li>
+            <li><a href="#">Nữ</a></li>
+            <li><a href="#">Trẻ em</a></li>
+            <li><a href="#">Phụ kiện</a></li>
+            <li><a href="order-history.html" class="auth-only" style="display:none">Đơn hàng</a></li>
+            <li><a href="admin/dashboard.html" class="nav-dashboard admin-only" style="display:none">Dashboard</a></li>
+        </ul>
+        <div class="nav-search">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+        </div>
+        <div class="nav-actions">
+            <a href="login.html" class="nav-icon-btn guest-only" title="Đăng nhập">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+            </a>
+            <a href="profile.html" class="nav-icon-btn auth-only" style="display:none" title="Tài khoản">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+            </a>
+            <a href="cart.html" class="nav-icon-btn auth-only" style="display:none" title="Giỏ hàng">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+                <span class="cart-badge">3</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- BACK -->
+<div class="back-bar">
+    <a href="index.html" class="back-link">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="m15 18-6-6 6-6"/>
+        </svg>
+        Quay lại trang chủ
+    </a>
+</div>
+
+<!-- MAIN -->
+<div class="account-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="account-sidebar">
+        <div class="user-info">
+            <div class="user-avatar">
+                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+            </div>
+            <div>
+                <div class="user-name" id="sidebarName">Nguyễn Văn A</div>
+                <div class="user-email" id="sidebarEmail">user@example.com</div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="profile.html" class="sidebar-nav-item active">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+                Hồ sơ
+                <svg class="chevron" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <a href="order-history.html" class="sidebar-nav-item">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+                Đơn mua
+                <svg class="chevron" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <a href="#" class="sidebar-nav-item logout" id="logoutBtn">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                    <polyline points="16 17 21 12 16 7"/>
+                    <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+                Đăng xuất
+                <svg class="chevron" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="account-content">
+
+        <!-- ===== HỒ SƠ ===== -->
+        <section class="profile-section">
+            <div class="content-header">
+                <div>
+                    <h1>Hồ sơ của tôi</h1>
+                    <p>Quản lý thông tin cá nhân của bạn</p>
+                </div>
+                <!-- View mode: nút Chỉnh sửa -->
+                <button class="btn-edit" id="btnEdit">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    Chỉnh sửa
+                </button>
+                <!-- Edit mode: nút Hủy + Lưu -->
+                <div class="btn-edit-actions" id="btnEditActions" style="display:none">
+                    <button class="btn-cancel" id="btnCancel">Hủy</button>
+                    <button class="btn-save" id="btnSave">Lưu thay đổi</button>
+                </div>
+            </div>
+
+            <!-- Avatar -->
+            <div class="profile-avatar-wrap">
+                <div class="profile-avatar" id="profileAvatar">N</div>
+                <button class="avatar-camera-btn" id="avatarCameraBtn" style="display:none">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                        <circle cx="12" cy="13" r="4"/>
+                    </svg>
+                </button>
+                <div class="profile-avatar-info">
+                    <div class="profile-name-display" id="avatarName">Nguyễn Văn A</div>
+                    <div class="profile-email-display" id="avatarEmail">user@example.com</div>
+                </div>
+            </div>
+
+            <!-- Form fields -->
+            <div class="profile-fields">
+                <div class="profile-field">
+                    <label>Họ và tên</label>
+                    <div class="field-input-wrap">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <input type="text" id="fieldName" value="Nguyễn Văn A" disabled>
+                    </div>
+                </div>
+
+                <div class="profile-field">
+                    <label>Email</label>
+                    <div class="field-input-wrap">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                        <input type="email" id="fieldEmail" value="user@example.com" disabled>
+                    </div>
+                </div>
+
+                <div class="profile-field">
+                    <label>Số điện thoại</label>
+                    <div class="field-input-wrap">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.58 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.27-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <input type="tel" id="fieldPhone" value="0901234567" disabled>
+                    </div>
+                </div>
+
+                <div class="profile-field-row">
+                    <div class="profile-field">
+                        <label>Ngày sinh</label>
+                        <div class="field-input-wrap">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <input type="text" id="fieldDob" value="15/01/1990" disabled>
+                        </div>
+                    </div>
+                    <div class="profile-field">
+                        <label>Giới tính</label>
+                        <div class="field-input-wrap">
+                            <select id="fieldGender" disabled>
+                                <option value="male" selected>Nam</option>
+                                <option value="female">Nữ</option>
+                                <option value="other">Khác</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== ĐỔI MẬT KHẨU ===== -->
+        <section class="password-section">
+            <div class="password-header" id="passwordToggle">
+                <div>
+                    <h2>Đổi mật khẩu</h2>
+                    <p>Cập nhật mật khẩu để bảo vệ tài khoản</p>
+                </div>
+                <button class="btn-password-toggle" id="btnPasswordToggle">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="password-form" id="passwordForm" style="display:none">
+                <div class="profile-field">
+                    <label>Mật khẩu hiện tại</label>
+                    <div class="field-input-wrap password-wrap">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <input type="password" id="currentPassword" placeholder="Nhập mật khẩu hiện tại">
+                        <button type="button" class="toggle-pw-btn" data-target="currentPassword">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="profile-field">
+                    <label>Mật khẩu mới</label>
+                    <div class="field-input-wrap password-wrap">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <input type="password" id="newPassword" placeholder="Tối thiểu 6 ký tự">
+                        <button type="button" class="toggle-pw-btn" data-target="newPassword">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="profile-field">
+                    <label>Xác nhận mật khẩu mới</label>
+                    <div class="field-input-wrap password-wrap">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu mới">
+                        <button type="button" class="toggle-pw-btn" data-target="confirmPassword">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="passwordMsg" class="password-msg" style="display:none"></div>
+
+                <button class="btn-save-password" id="btnSavePassword">Cập nhật mật khẩu</button>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="index.html" class="logo">FashionStore</a>
+            <p>Thời trang chất lượng cao với giá tốt nhất</p>
+        </div>
+        <div class="footer-col">
+            <h4>Về chúng tôi</h4>
+            <ul>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Tuyển dụng</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Hỗ trợ</h4>
+            <ul>
+                <li><a href="#">Chính sách đổi trả</a></li>
+                <li><a href="#">Hướng dẫn mua hàng</a></li>
+                <li><a href="#">Câu hỏi thường gặp</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Theo dõi chúng tôi</h4>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">TikTok</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2026 FashionStore. All rights reserved.</div>
+</footer>
+
+<div class="help-btn">?</div>
+
+<script src="assets/js/auth/auth.js"></script>
+<script src="assets/js/profile.js"></script>
+</body>
+</html>
