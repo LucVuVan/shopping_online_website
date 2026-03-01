@@ -1,0 +1,122 @@
+/* ===== NAVBAR ===== */
+.navbar {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-mid);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-px);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-links a {
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-fast);
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    background: var(--gray-light);
+}
+
+.nav-links .nav-dashboard {
+    color: var(--blue);
+    font-weight: 700;
+}
+
+/* Search */
+.nav-search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: var(--gray-light);
+    border-radius: var(--radius-md);
+    padding: 8px 14px;
+    gap: 8px;
+    max-width: 320px;
+    margin-left: auto;
+}
+
+.nav-search svg {
+    color: #999;
+    flex-shrink: 0;
+}
+
+.nav-search input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.9rem;
+    color: var(--black);
+    width: 100%;
+}
+
+.nav-search input::placeholder {
+    color: #aaa;
+}
+
+/* Actions */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-icon-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    color: #444;
+    transition: background var(--transition-fast);
+    position: relative;
+}
+
+.nav-icon-btn:hover {
+    background: var(--gray-light);
+}
+
+.cart-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 16px;
+    height: 16px;
+    background: var(--red);
+    color: var(--white);
+    font-size: 0.65rem;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

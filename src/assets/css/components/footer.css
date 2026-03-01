@@ -1,0 +1,80 @@
+/* ===== FOOTER ===== */
+footer {
+    background: var(--dark-navy);
+    color: var(--white);
+    padding: 48px 0 24px;
+}
+
+.footer-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-px);
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand .logo {
+    color: var(--white);
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.footer-brand p {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+}
+
+.footer-col h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.footer-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-col ul a {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.875rem;
+    transition: color var(--transition-fast);
+}
+
+.footer-col ul a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 20px var(--container-px) 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.35);
+}
+
+/* Help button */
+.help-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    background: var(--dark-navy);
+    color: var(--white);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+}
