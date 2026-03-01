@@ -1,0 +1,323 @@
+/* ===== PROFILE AVATAR ===== */
+.profile-avatar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    user-select: none;
+}
+
+.avatar-camera-btn {
+    position: absolute;
+    bottom: 0;
+    left: 56px;
+    width: 28px;
+    height: 28px;
+    background: var(--black);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.avatar-camera-btn:hover { background: #333; }
+
+.profile-name-display {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 3px;
+}
+
+.profile-email-display {
+    font-size: 0.82rem;
+    color: var(--gray-text);
+}
+
+/* ===== CONTENT HEADER (override cho profile) ===== */
+.profile-section .content-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.profile-section .content-header h1 {
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+}
+
+.profile-section .content-header p {
+    font-size: 0.875rem;
+    color: var(--gray-text);
+}
+
+/* Nút Chỉnh sửa (view mode) */
+.btn-edit {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--gray-mid);
+    background: var(--white);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--black);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+.btn-edit:hover {
+    border-color: #999;
+    background: var(--gray-light);
+}
+
+/* Nút Hủy + Lưu (edit mode) */
+.btn-edit-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-cancel {
+    padding: 9px 18px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--gray-mid);
+    background: var(--white);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-cancel:hover { background: var(--gray-light); color: var(--black); }
+
+.btn-save {
+    padding: 9px 20px;
+    border-radius: var(--radius-md);
+    border: none;
+    background: var(--black);
+    color: var(--white);
+    font-size: 0.875rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.btn-save:hover { background: #333; }
+
+/* ===== PROFILE FIELDS ===== */
+.profile-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.profile-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profile-field label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.field-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gray-light);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    border: 1.5px solid transparent;
+    transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.field-input-wrap svg {
+    color: #bbb;
+    flex-shrink: 0;
+}
+
+.field-input-wrap input,
+.field-input-wrap select {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.9rem;
+    color: var(--black);
+    font-family: inherit;
+}
+
+.field-input-wrap select {
+    cursor: pointer;
+    appearance: auto;
+}
+
+/* Disabled state — view mode */
+.field-input-wrap input:disabled,
+.field-input-wrap select:disabled {
+    color: #444;
+    cursor: default;
+}
+
+/* Enabled state — edit mode */
+.field-input-wrap:has(input:not(:disabled)),
+.field-input-wrap:has(select:not(:disabled)) {
+    background: var(--gray-light);
+    border-color: var(--gray-mid);
+}
+
+.field-input-wrap:has(input:not(:disabled)):focus-within,
+.field-input-wrap:has(select:not(:disabled)):focus-within {
+    border-color: var(--black);
+    background: #fff;
+}
+
+/* Password wrap (có nút toggle) */
+.password-wrap {
+    position: relative;
+}
+
+.toggle-pw-btn {
+    background: none;
+    border: none;
+    color: #bbb;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    transition: color var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.toggle-pw-btn:hover { color: #555; }
+
+/* ===== SECTION DIVIDER ===== */
+.section-divider {
+    height: 1px;
+    background: var(--gray-mid);
+    margin: 32px 0;
+}
+
+/* ===== PASSWORD SECTION ===== */
+
+.password-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.password-header h2 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--black);
+    margin-bottom: 4px;
+}
+
+.password-header p {
+    font-size: 0.875rem;
+    color: var(--gray-text);
+}
+
+.btn-password-toggle {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--gray-mid);
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #666;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.btn-password-toggle:hover { background: var(--gray-light); }
+.btn-password-toggle.open svg { transform: rotate(180deg); }
+.btn-password-toggle svg { transition: transform var(--transition-base); }
+
+.password-form {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Message */
+.password-msg {
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.password-msg.success {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.password-msg.error {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.btn-save-password {
+    width: fit-content;
+    padding: 11px 24px;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background var(--transition-fast);
+}
+
+.btn-save-password:hover { background: #333; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .profile-field-row {
+        grid-template-columns: 1fr;
+    }
+}
