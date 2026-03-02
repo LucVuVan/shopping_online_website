@@ -83,7 +83,7 @@ function renderOrders(filter = 'all') {
                 <div class="order-total">
                     Tổng tiền: <strong>${order.total.toLocaleString('vi-VN')}đ</strong>
                 </div>
-                <button class="btn-detail">Xem chi tiết</button>
+                <button class="btn-detail" onclick="window.location.href='order-detail.html?id=${order.id}'">Xem chi tiết</button>
             </div>
         </div>
     `).join('');
