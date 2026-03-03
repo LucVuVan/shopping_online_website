@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Đơn hàng - FashionStore Admin</title>
+    <link rel="stylesheet" href="../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../assets/css/base/typography.css">
+    <link rel="stylesheet" href="../assets/css/admin/admin.css">
+    <link rel="stylesheet" href="../assets/css/admin/customers-orders.css">
+</head>
+<body class="admin-body">
+<div class="admin-layout">
+    <aside class="admin-sidebar">
+        <div class="admin-brand"><div class="admin-brand-name">FashionStore Admin</div><div class="admin-brand-role">Quản trị viên</div></div>
+        <nav class="admin-nav">
+            <a href="dashboard.html" class="admin-nav-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
+            <a href="products.html" class="admin-nav-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>Sản phẩm</a>
+            <a href="orders.html" class="admin-nav-item active"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Đơn hàng</a>
+            <a href="customers.html" class="admin-nav-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Khách hàng</a>
+            <a href="categories.html" class="admin-nav-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>Danh mục</a>
+        </nav>
+        <a href="../index.html" class="admin-logout"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Đăng xuất</a>
+    </aside>
+
+    <main class="admin-main">
+        <div class="admin-page-header">
+            <div><h1>Quản lý Đơn hàng</h1><p>Theo dõi và xử lý các đơn hàng của khách hàng</p></div>
+        </div>
+
+        <!-- FILTER BAR -->
+        <div class="admin-card filter-bar">
+            <div class="filter-search">
+                <svg width="15" height="15" fill="none" stroke="#bbb" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="orderSearch" placeholder="Tìm theo mã đơn, tên, SĐT...">
+            </div>
+            <div class="filter-date">
+                <svg width="15" height="15" fill="none" stroke="#bbb" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <input type="date" id="orderDate">
+            </div>
+            <div class="filter-status-wrap">
+                <select id="orderStatusFilter">
+                    <option value="">Tất cả trạng thái</option>
+                    <option value="pending">Chờ xử lý</option>
+                    <option value="processing">Đang xử lý</option>
+                    <option value="shipping">Đang giao</option>
+                    <option value="completed">Hoàn thành</option>
+                    <option value="cancelled">Đã hủy</option>
+                </select>
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="order-stats-grid">
+            <div class="ord-stat-card"><div class="osc-label">Chờ xử lý</div><div class="osc-value orange" id="osCountPending">2</div></div>
+            <div class="ord-stat-card"><div class="osc-label">Đang giao</div><div class="osc-value purple" id="osCountShipping">2</div></div>
+            <div class="ord-stat-card"><div class="osc-label">Hoàn thành</div><div class="osc-value green" id="osCountDone">2</div></div>
+            <div class="ord-stat-card"><div class="osc-label">Tổng doanh thu</div><div class="osc-value black" id="osRevenue">1.4M</div></div>
+        </div>
+
+        <!-- TABLE -->
+        <div class="admin-card table-card">
+            <table class="ord-table">
+                <thead><tr>
+                    <th>Mã đơn hàng</th><th>Khách hàng</th><th>Ngày đặt</th>
+                    <th>Tổng tiền</th><th>Trạng thái</th><th>Hành động</th>
+                </tr></thead>
+                <tbody id="ordTableBody"></tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+<!-- MODAL CHI TIẾT ĐƠN HÀNG -->
+<div class="modal-overlay" id="ordDetailOverlay">
+    <div class="ord-detail-modal">
+        <div class="odm-header">
+            <div>
+                <h2 id="odmOrderId">#DH-2026-001</h2>
+                <p id="odmOrderDate">Ngày đặt: 29 ngày trước</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px">
+                <span class="ord-badge" id="odmStatusBadge">Chờ xử lý</span>
+                <button class="pfm-close" id="odmClose"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+            </div>
+        </div>
+        <div class="odm-body">
+            <!-- Tracking -->
+            <div class="odm-section">
+                <div class="odm-section-title">Trạng thái đơn hàng</div>
+                <div class="odm-tracking" id="odmTracking"></div>
+            </div>
+            <div class="odm-divider"></div>
+
+            <!-- Address + Payment -->
+            <div class="odm-two-col">
+                <div>
+                    <div class="odm-section-title">Địa chỉ nhận hàng</div>
+                    <div class="odm-addr-card">
+                        <div class="odm-addr-name" id="odmAddrName">Nguyễn Văn A</div>
+                        <div class="odm-addr-info" id="odmAddrPhone">0901234567</div>
+                        <div class="odm-addr-info" id="odmAddrText">123 Đường ABC, Hà Nội</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="odm-section-title">Thanh toán</div>
+                    <div class="odm-pay-rows">
+                        <div class="odm-pay-row"><span>Phương thức:</span><strong id="odmPayMethod">COD</strong></div>
+                        <div class="odm-pay-row"><span>Trạng thái:</span><span class="pay-status" id="odmPayStatus">Chưa thanh toán</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="odm-divider"></div>
+
+            <!-- Products -->
+            <div>
+                <div class="odm-section-title">Sản phẩm</div>
+                <div class="odm-products" id="odmProducts"></div>
+                <div class="odm-totals">
+                    <div class="odm-total-row"><span>Tạm tính</span><span id="odmSubtotal">0đ</span></div>
+                    <div class="odm-total-row"><span>Phí vận chuyển</span><span id="odmShipping">0đ</span></div>
+                    <div class="odm-total-row grand"><span>Tổng cộng</span><strong id="odmGrand">0đ</strong></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin actions -->
+        <div class="odm-footer" id="odmFooter"></div>
+    </div>
+</div>
+
+<script src="../assets/js/auth/auth.js"></script>
+<script src="../assets/js/admin/orders-admin.js"></script>
+</body>
+</html>
