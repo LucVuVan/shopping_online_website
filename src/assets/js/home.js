@@ -26,14 +26,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ===== MỞ MODAL KHI CLICK ẢNH / TÊN SẢN PHẨM =====
+    document.querySelectorAll('.product-card').forEach((card, index) => {
+        const product = PRODUCTS[index];
+        if (!product) return;
+
+        // Click vào ảnh hoặc tên
+        const img  = card.querySelector('.product-img-wrap img');
+        const name = card.querySelector('.product-name');
+        [img, name].forEach(el => {
+            el?.addEventListener('click', () => ProductModal.open(product.id));
+        });
+    });
+
     // ===== THÊM VÀO GIỎ =====
     document.querySelectorAll('.btn-add-cart').forEach((btn, index) => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             const product = PRODUCTS[index];
             if (!product) return;
 
-            // Yêu cầu đăng nhập
             if (!Auth.isLoggedIn()) {
                 window.location.href = 'login.html';
                 return;
