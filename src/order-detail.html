@@ -29,10 +29,10 @@
     <!-- HEADER -->
     <div class="od-header">
         <div>
-            <h1 id="orderId">#DH-2026-001</h1>
-            <p id="orderDate">Ngày đặt hàng: lúc 10:30 28 tháng 1, 2026</p>
+            <h1 id="orderId"></h1>
+            <p id="orderDate"></p>
         </div>
-        <span class="order-status status-completed" id="orderStatus">Giao thành công</span>
+        <span class="order-status" id="orderStatus"></span>
     </div>
 
     <div class="od-divider"></div>
@@ -42,7 +42,7 @@
         <h2>Trạng thái đơn hàng</h2>
         <div class="tracking-timeline" id="trackingTimeline">
             <div class="timeline-line"></div>
-            <div class="timeline-step active">
+            <div class="timeline-step">
                 <div class="step-icon">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
@@ -50,7 +50,7 @@
                 </div>
                 <span>Đặt hàng</span>
             </div>
-            <div class="timeline-step active">
+            <div class="timeline-step">
                 <div class="step-icon">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
@@ -58,15 +58,16 @@
                 </div>
                 <span>Đang xử lý</span>
             </div>
-            <div class="timeline-step active">
+            <div class="timeline-step">
                 <div class="step-icon">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+                        <rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/>
+                        <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
                     </svg>
                 </div>
                 <span>Đang giao hàng</span>
             </div>
-            <div class="timeline-step active">
+            <div class="timeline-step">
                 <div class="step-icon">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
@@ -84,22 +85,21 @@
         <div class="od-section">
             <h2>Địa chỉ nhận hàng</h2>
             <div class="address-card">
-                <div class="address-name" id="addrName">Nguyễn Văn A</div>
-                <div class="address-phone" id="addrPhone">0901234567</div>
-                <div class="address-text" id="addrText">123 Đường ABC, Phường XYZ<br>Quận Cầu Giấy, Hà Nội</div>
+                <div class="address-name" id="addrName"></div>
+                <div class="address-phone" id="addrPhone"></div>
+                <div class="address-text" id="addrText"></div>
             </div>
         </div>
-
         <div class="od-section">
             <h2>Thông tin thanh toán</h2>
             <div class="payment-info">
                 <div class="payment-row">
-                    <span>Phương thức thanh toán:</span>
-                    <strong id="payMethod">Chuyển khoản ngân hàng</strong>
+                    <span>Phương thức:</span>
+                    <strong id="payMethod"></strong>
                 </div>
                 <div class="payment-row">
-                    <span>Trạng thái thanh toán:</span>
-                    <span class="pay-status paid" id="payStatus">Đã thanh toán</span>
+                    <span>Trạng thái:</span>
+                    <span class="pay-status" id="payStatus"></span>
                 </div>
             </div>
         </div>
@@ -119,21 +119,10 @@
             </div>
             <div id="productRows"></div>
         </div>
-
-        <!-- TOTALS -->
         <div class="order-totals">
-            <div class="total-row">
-                <span>Tạm tính</span>
-                <span id="subtotal">997.000đ</span>
-            </div>
-            <div class="total-row">
-                <span>Phí vận chuyển</span>
-                <span id="shipping">30.000đ</span>
-            </div>
-            <div class="total-row grand">
-                <span>Tổng cộng</span>
-                <strong id="grandTotal">1.028.000đ</strong>
-            </div>
+            <div class="total-row"><span>Tạm tính</span><span id="subtotal"></span></div>
+            <div class="total-row"><span>Phí vận chuyển</span><span id="shipping"></span></div>
+            <div class="total-row grand"><span>Tổng cộng</span><strong id="grandTotal"></strong></div>
         </div>
     </div>
 
