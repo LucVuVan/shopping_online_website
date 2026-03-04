@@ -6,50 +6,56 @@
     <title>Đăng ký - FashionStore</title>
     <link rel="stylesheet" href="assets/css/base/reset.css">
     <link rel="stylesheet" href="assets/css/base/typography.css">
-
     <link rel="stylesheet" href="assets/css/layouts/auth-layout.css">
     <link rel="stylesheet" href="assets/css/pages/login.css">
-
+    <style>
+        .input-group input.input-error { border-color: #dc2626; background: #fff5f5; }
+        .input-group input.input-ok    { border-color: #16a34a; }
+        .error-msg { display:block; font-size:.75rem; color:#dc2626; margin-top:4px; font-weight:500; }
+    </style>
 </head>
 <body>
     <div class="login-container">
-            <div class="login-image register-design"> </div>
-            <div class="login-form-section">
-                <form class="login-form">
-                    <h2>Tạo tài khoản</h2>
-                    <p>Vui lòng điền thông tin bên dưới</p>
+        <div class="login-image register-design"></div>
+        <div class="login-form-section">
+            <form class="login-form">
+                <h2>Tạo tài khoản</h2>
+                <p>Vui lòng điền thông tin bên dưới</p>
 
-                    <div class="input-group">
-                        <label>Họ và Tên</label>
-                        <input type="text" placeholder="Nhập họ tên" required>
-                    </div>
+                <div class="input-group">
+                    <label>Họ và Tên</label>
+                    <input id="regName" type="text" placeholder="Nhập họ tên" required>
+                </div>
 
-                    <div class="input-group">
-                        <label>Email</label>
-                        <input type="email" placeholder="abc@gmail.com" required>
-                    </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input id="regEmail" type="email" placeholder="abc@gmail.com" required>
+                </div>
 
-                    <div class="input-group">
-                        <label>Số điện thoại</label>
-                        <input type="tel" placeholder="Nhập số điện thoại của bạn" required>
-                    </div>
+                <div class="input-group">
+                    <label>Số điện thoại</label>
+                    <input id="regPhone" type="tel" placeholder="Nhập số điện thoại của bạn" required>
+                </div>
 
-                    <div class="input-group">
-                        <label>Mật khẩu</label>
-                        <input type="password" placeholder="Tối thiểu 6 ký tự" required>
-                    </div>
+                <div class="input-group">
+                    <label>Mật khẩu</label>
+                    <input id="regPass" type="password" placeholder="Tối thiểu 6 ký tự" required>
+                </div>
 
-                    <div class="input-group">
-                        <label>Xác nhận mật khẩu</label>
-                        <input type="password" placeholder="Nhập lại mật khẩu" required>
-                    </div>
+                <div class="input-group">
+                    <label>Xác nhận mật khẩu</label>
+                    <input id="regConfirm" type="password" placeholder="Nhập lại mật khẩu" required>
+                </div>
 
-                    <button type="submit" class="btn-login">Đăng ký ngay</button>
+                <button type="submit" class="btn-login">Đăng ký ngay</button>
 
-                    <p class="register-link">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
-                </form>
-            </div>
+                <p class="register-link">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+            </form>
         </div>
     </div>
+
+    <!-- auth.js phải load trước để register.js dùng được Auth.login() -->
+    <script src="assets/js/auth/auth.js"></script>
+    <script src="assets/js/pages/register.js"></script>
 </body>
 </html>
