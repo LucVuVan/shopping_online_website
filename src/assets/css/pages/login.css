@@ -254,3 +254,21 @@
         padding: 40px 28px;
     }
 }
+
+/* ===== INPUT VALIDATION STATES ===== */
+.input-group input.input-error {
+    border-color: #dc2626;
+    background: #fff5f5;
+}
+
+.input-group input.input-ok {
+    border-color: #16a34a;
+}
+
+.error-msg {
+    display: block;
+    font-size: 0.75rem;
+    color: #dc2626;
+    margin-top: 4px;
+    font-weight: 500;
+}
