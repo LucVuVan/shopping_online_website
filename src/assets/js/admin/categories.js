@@ -7,19 +7,19 @@ const CAT_STORAGE_KEY = 'adminCategories';
 
 // ===== DEFAULT DATA =====
 const DEFAULT_CATEGORIES = [
-    { id: 1, name: 'Đồ Nam',    parentId: null, img: '' },
-    { id: 2, name: 'Áo',        parentId: 1,    img: '' },
-    { id: 3, name: 'Quần',      parentId: 1,    img: '' },
-    { id: 4, name: 'Phụ kiện',  parentId: 1,    img: '' },
-    { id: 5, name: 'Đồ Nữ',    parentId: null, img: '' },
-    { id: 6, name: 'Váy',       parentId: 5,    img: '' },
-    { id: 7, name: 'Áo',        parentId: 5,    img: '' },
-    { id: 8, name: 'Quần',      parentId: 5,    img: '' },
-    { id: 9, name: 'Đồ Trẻ em', parentId: null, img: '' },
-    { id: 10, name: 'Giày dép', parentId: null, img: '' },
+    { id: 1, name: 'Đồ Nam',    parentId: null },
+    { id: 2, name: 'Áo',        parentId: 1    },
+    { id: 3, name: 'Quần',      parentId: 1    },
+    { id: 4, name: 'Phụ kiện',  parentId: 1    },
+    { id: 5, name: 'Đồ Nữ',    parentId: null },
+    { id: 6, name: 'Váy',       parentId: 5    },
+    { id: 7, name: 'Áo',        parentId: 5    },
+    { id: 8, name: 'Quần',      parentId: 5    },
+    { id: 9, name: 'Đồ Trẻ em', parentId: null },
+    { id: 10, name: 'Giày dép', parentId: null },
 ];
 
-let categories = [];
+let categories   = [];
 let editingCatId = null;
 let deleteCatId  = null;
 let expanded     = new Set([1, 5]); // mở sẵn Đồ Nam, Đồ Nữ
@@ -44,7 +44,7 @@ function nextId() {
 
 // ===== RENDER TREE =====
 function renderTree() {
-    const tree = document.getElementById('catTree');
+    const tree  = document.getElementById('catTree');
     const roots = categories.filter(c => !c.parentId);
 
     tree.innerHTML = roots.map(root => {
@@ -108,7 +108,6 @@ function renderTree() {
         </div>`;
     }).join('');
 
-    // Cập nhật dropdown parent select
     renderParentSelect();
 }
 
@@ -121,8 +120,8 @@ function toggleExpand(id) {
 
 // ===== PARENT SELECT =====
 function renderParentSelect() {
-    const sel = document.getElementById('catParent');
-    const cur = sel.value;
+    const sel   = document.getElementById('catParent');
+    const cur   = sel.value;
     const roots = categories.filter(c => !c.parentId && c.id !== editingCatId);
 
     sel.innerHTML = `<option value="">-- Không có (Danh mục gốc) --</option>` +
@@ -143,16 +142,6 @@ function editCat(e, id) {
     renderParentSelect();
     document.getElementById('catParent').value = cat.parentId || '';
 
-    // Image
-    if (cat.img) {
-        document.getElementById('catImgPreview').src         = cat.img;
-        document.getElementById('catImgPreview').style.display = '';
-        document.getElementById('catImgPlaceholder').style.display = 'none';
-        document.getElementById('catImgRemove').style.display = '';
-    } else {
-        clearCatImg();
-    }
-
     renderTree();
 }
 
@@ -168,7 +157,7 @@ function saveCat() {
         const idx = categories.findIndex(c => c.id === editingCatId);
         if (idx !== -1) categories[idx] = { ...categories[idx], name, parentId };
     } else {
-        categories.push({ id: nextId(), name, parentId, img: '' });
+        categories.push({ id: nextId(), name, parentId });
         if (parentId) expanded.add(parentId);
     }
 
@@ -182,17 +171,9 @@ function resetCatForm() {
     editingCatId = null;
     document.getElementById('catFormTitle').textContent = 'Thêm danh mục mới';
     document.getElementById('catBtnSave').textContent   = 'Lưu danh mục';
-    document.getElementById('catName').value = '';
-    document.getElementById('catParent').value = '';
-    clearCatImg();
+    document.getElementById('catName').value            = '';
+    document.getElementById('catParent').value          = '';
     renderTree();
-}
-
-function clearCatImg() {
-    document.getElementById('catImgPreview').src            = '';
-    document.getElementById('catImgPreview').style.display  = 'none';
-    document.getElementById('catImgPlaceholder').style.display = '';
-    document.getElementById('catImgRemove').style.display   = 'none';
 }
 
 // ===== DELETE =====
@@ -201,10 +182,12 @@ function openDeleteCat(e, id) {
     e.preventDefault();
     const cat = categories.find(c => c.id === id);
     if (!cat) return;
+
     deleteCatId = id;
     const children = categories.filter(c => c.parentId === id);
     let msg = `Bạn có chắc muốn xóa danh mục "${cat.name}"?`;
     if (children.length > 0) msg += ` Sẽ xóa luôn ${children.length} danh mục con.`;
+
     document.getElementById('catDeleteMsg').textContent = msg;
     const overlay = document.getElementById('catDeleteOverlay');
     overlay.style.display = 'flex';
@@ -222,13 +205,17 @@ function closeDeleteCat() {
 
 function confirmDeleteCat() {
     if (!deleteCatId) return;
+
     const childIds = categories
         .filter(c => c.parentId === deleteCatId)
         .map(c => c.id);
     const toDelete = new Set([deleteCatId, ...childIds]);
+
     categories = categories.filter(c => !toDelete.has(c.id));
     saveCategories();
+
     if (toDelete.has(editingCatId)) resetCatForm();
+
     closeDeleteCat();
     renderTree();
 }
