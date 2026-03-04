@@ -15,28 +15,27 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const email = document.getElementById('email').value.trim();
+        const email    = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value;
 
-        // --- Tạm thời hardcode để test ---
-        // Sau này thay bằng API call
         if (email === 'admin@gmail.com' && password === '123456') {
             Auth.login('admin', 'Admin', email);
+            window.location.href = 'admin/dashboard.html'; // admin → dashboard
         } else if (email && password.length >= 6) {
-            Auth.login('user', 'Người dùng', email);
+            Auth.login('user', email.split('@')[0], email);
+            window.location.href = 'index.html'; // user → trang chủ
         } else {
             alert('Email hoặc mật khẩu không đúng!');
         }
     });
 
     // Toggle show/hide password
-    const toggleBtn = document.querySelector('.toggle-password');
+    const toggleBtn     = document.querySelector('.toggle-password');
     const passwordInput = document.getElementById('password');
 
     if (toggleBtn && passwordInput) {
         toggleBtn.addEventListener('click', () => {
-            const isPassword = passwordInput.type === 'password';
-            passwordInput.type = isPassword ? 'text' : 'password';
+            passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
         });
     }
 });

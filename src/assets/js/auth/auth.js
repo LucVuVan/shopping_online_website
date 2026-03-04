@@ -24,12 +24,15 @@ const Auth = {
 
     /**
      * Lưu thông tin đăng nhập
+     * @param {string} role - 'admin' | 'user'
+     * @param {string} name - Tên hiển thị (tuỳ chọn)
+     * @param {string} email - Email (tuỳ chọn)
      */
-    login(role = 'user') {
+    login(role = 'user', name = '', email = '') {
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('userRole', role);
-        localStorage.setItem('userName', user.name);
-        localStorage.setItem('userEmail', user.email);
+        if (name)  localStorage.setItem('userName', name);
+        if (email) localStorage.setItem('userEmail', email);
     },
 
     /**
@@ -47,7 +50,7 @@ const Auth = {
      */
     updateUI() {
         const loggedIn = this.isLoggedIn();
-        const admin = this.isAdmin();
+        const admin    = this.isAdmin();
 
         document.querySelectorAll('.auth-only').forEach(el => {
             el.style.display = loggedIn ? '' : 'none';
@@ -64,7 +67,6 @@ const Auth = {
 
     /**
      * Redirect về login nếu chưa đăng nhập
-     * Dùng cho các trang yêu cầu auth (checkout, order-history...)
      */
     requireAuth() {
         if (!this.isLoggedIn()) {
@@ -74,7 +76,6 @@ const Auth = {
 
     /**
      * Redirect về login nếu không phải admin
-     * Dùng cho các trang admin
      */
     requireAdmin() {
         if (!this.isAdmin()) {
