@@ -30,15 +30,15 @@
 <div class="main-content" id="products">
     <aside class="sidebar">
         <h3>Bộ lọc</h3>
-        <div class="filter-section">
+        <div class="filter-section filter-category">
             <h4>Danh mục</h4>
             <div class="checkbox-list">
-                <label class="checkbox-item"><input type="checkbox"><label>Áo thun</label></label>
-                <label class="checkbox-item"><input type="checkbox"><label>Áo khoác</label></label>
-                <label class="checkbox-item"><input type="checkbox"><label>Quần jean</label></label>
-                <label class="checkbox-item"><input type="checkbox"><label>Váy</label></label>
-                <label class="checkbox-item"><input type="checkbox"><label>Giày</label></label>
-                <label class="checkbox-item"><input type="checkbox"><label>Phụ kiện</label></label>
+                <label class="checkbox-item"><input type="checkbox" data-category="Áo thun"><span>Áo thun</span></label>
+                <label class="checkbox-item"><input type="checkbox" data-category="Áo khoác"><span>Áo khoác</span></label>
+                <label class="checkbox-item"><input type="checkbox" data-category="Quần jean"><span>Quần jean</span></label>
+                <label class="checkbox-item"><input type="checkbox" data-category="Váy"><span>Váy</span></label>
+                <label class="checkbox-item"><input type="checkbox" data-category="Giày"><span>Giày</span></label>
+                <label class="checkbox-item"><input type="checkbox" data-category="Phụ kiện"><span>Phụ kiện</span></label>
             </div>
         </div>
         <div class="filter-section">
@@ -49,14 +49,14 @@
                 <span id="priceVal">2.000.000đ</span>
             </div>
         </div>
-        <div class="filter-section">
+        <div class="filter-section filter-size">
             <h4>Kích thước</h4>
             <div class="checkbox-list">
-                <label class="checkbox-item"><input type="checkbox"><label>S</label></label>
-                <label class="checkbox-item"><input type="checkbox"><label>M</label></label>
-                <label class="checkbox-item"><input type="checkbox"><label>L</label></label>
-                <label class="checkbox-item"><input type="checkbox"><label>XL</label></label>
-                <label class="checkbox-item"><input type="checkbox"><label>XXL</label></label>
+                <label class="checkbox-item"><input type="checkbox" data-size="S"><span>S</span></label>
+                <label class="checkbox-item"><input type="checkbox" data-size="M"><span>M</span></label>
+                <label class="checkbox-item"><input type="checkbox" data-size="L"><span>L</span></label>
+                <label class="checkbox-item"><input type="checkbox" data-size="XL"><span>XL</span></label>
+                <label class="checkbox-item"><input type="checkbox" data-size="XXL"><span>XXL</span></label>
             </div>
         </div>
     </aside>
@@ -64,125 +64,8 @@
     <section class="products-section">
         <h2 id="productCount">Tất cả sản phẩm (8)</h2>
         <div class="product-grid" id="productGrid">
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop" alt="Áo thun cotton basic">
-                    <div class="product-badges"><span class="badge badge-new">Mới</span><span class="badge badge-sale">-33%</span></div>
-                    <button class="btn-wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Áo thun</div>
-                    <div class="product-name">Áo thun cotton basic</div>
-                    <div class="product-rating"><span class="star">★</span> 4.5</div>
-                    <div class="product-price">199.000đ <span class="original">299.000đ</span></div>
-                    <button class="btn-add-cart"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Thêm vào giỏ</button>
-                </div>
+                <!-- Sản phẩm render bởi home.js -->
             </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=400&fit=crop" alt="Áo khoác denim">
-                    <div class="product-badges"><span class="badge badge-sale">-25%</span></div>
-                    <button class="btn-wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Áo khoác</div>
-                    <div class="product-name">Áo khoác denim</div>
-                    <div class="product-rating"><span class="star">★</span> 4.7</div>
-                    <div class="product-price">449.000đ <span class="original">599.000đ</span></div>
-                    <button class="btn-add-cart"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Thêm vào giỏ</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop" alt="Quần jean skinny xanh">
-                    <button class="btn-wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Quần jean</div>
-                    <div class="product-name">Quần jean skinny xanh</div>
-                    <div class="product-rating"><span class="star">★</span> 4.3</div>
-                    <div class="product-price">359.000đ</div>
-                    <button class="btn-add-cart"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Thêm vào giỏ</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop" alt="Áo sơ mi trắng công sở">
-                    <div class="product-badges"><span class="badge badge-new">Mới</span></div>
-                    <button class="btn-wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Áo thun</div>
-                    <div class="product-name">Áo sơ mi trắng công sở</div>
-                    <div class="product-rating"><span class="star">★</span> 4.3</div>
-                    <div class="product-price">299.000đ</div>
-                    <button class="btn-add-cart"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Thêm vào giỏ</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&h=400&fit=crop" alt="Quần short kaki">
-                    <button class="btn-wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Quần jean</div>
-                    <div class="product-name">Quần short kaki</div>
-                    <div class="product-rating"><span class="star">★</span> 4.2</div>
-                    <div class="product-price">259.000đ</div>
-                    <button class="btn-add-cart"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Thêm vào giỏ</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=400&fit=crop" alt="Váy hoa mùa hè">
-                    <div class="product-badges"><span class="badge badge-sale">-20%</span></div>
-                    <button class="btn-wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Váy</div>
-                    <div class="product-name">Váy hoa mùa hè</div>
-                    <div class="product-rating"><span class="star">★</span> 4.6</div>
-                    <div class="product-price">319.000đ <span class="original">399.000đ</span></div>
-                    <button class="btn-add-cart"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Thêm vào giỏ</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop" alt="Giày sneaker trắng">
-                    <button class="btn-wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Giày</div>
-                    <div class="product-name">Giày sneaker trắng</div>
-                    <div class="product-rating"><span class="star">★</span> 4.8</div>
-                    <div class="product-price">699.000đ</div>
-                    <button class="btn-add-cart"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Thêm vào giỏ</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop" alt="Đồng hồ thời trang">
-                    <div class="product-badges"><span class="badge badge-new">Mới</span></div>
-                    <button class="btn-wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Phụ kiện</div>
-                    <div class="product-name">Đồng hồ thời trang</div>
-                    <div class="product-rating"><span class="star">★</span> 4.9</div>
-                    <div class="product-price">1.299.000đ</div>
-                    <button class="btn-add-cart"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Thêm vào giỏ</button>
-                </div>
-            </div>
-
-        </div>
     </section>
 </div>
 
